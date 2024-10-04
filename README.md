@@ -46,6 +46,8 @@ The data discovery dashboard provides the following functionality:
 
 - **Company List**: The main page displays a list of companies fetched from the backend API. Each company is represented by a card component (`company-list.tsx`) that shows relevant information about the company. The list is implemented using `react-window-infinite-loader` for efficient rendering of a large number of items.
 
+- **Infinite Scrolling**: By default, the dashboard displays 20 companies per page. This limit can be adjusted by adding a `limit` query parameter to the URL. For example, to display 50 companies per load, use: `http://localhost:3000/?limit=50`.
+
 - **Company Selection**: Users can select one or more companies from the list by clicking on the checkbox in each company card. The selected companies are highlighted and their state is managed using the `company` store.
 
 - **Company Deletion**: Users can delete the selected companies by clicking on the "Delete Selected" button in the footer. This action removes the selected companies from the list and updates the state accordingly.

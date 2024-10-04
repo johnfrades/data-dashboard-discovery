@@ -69,7 +69,8 @@ const useCompanyStore = create<CompanyStore>((set, get) => ({
     try {
       const params = new URLSearchParams({
         page: String(currentPage + 1),
-        ...Object.fromEntries(searchParams?.entries() || []),
+        ...(searchParams?.get('limit') && { limit: searchParams.get('limit')! }),
+        ...(searchParams?.get('error') && { error: searchParams.get('error')! }),
       });
 
       const response = await fetch(`${API_URL}/api/companies?${params}`);
