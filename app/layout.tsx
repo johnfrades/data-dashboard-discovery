@@ -17,8 +17,8 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: 'Minimi - Data Dashboard Discovery',
-  description: 'Minimi - Data Dashboard Discovery',
+  title: 'Data Dashboard Discovery',
+  description: 'Data Dashboard Discovery',
 };
 
 export default function RootLayout({
