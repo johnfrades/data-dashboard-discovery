@@ -30,6 +30,15 @@ const CompanyList = () => {
   }, []);
 
   const itemCount = hasMore ? companies.length + 1 : companies.length;
+
+  if (hasError) {
+    return <ErrorMessage />;
+  }
+
+  if (totalCount === 0) {
+    return <SkeletonLoader />;
+  }
+
   const loadMoreItems = () => {
     if (!isLoading) {
       loadMoreCompanies(searchParams);
@@ -58,14 +67,6 @@ const CompanyList = () => {
       );
     }
   };
-
-  if (hasError) {
-    return <ErrorMessage />;
-  }
-
-  if (totalCount === 0) {
-    return <SkeletonLoader />;
-  }
 
   return (
     <InfiniteLoader
