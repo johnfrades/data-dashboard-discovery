@@ -1,7 +1,8 @@
+import { NextRequest, NextResponse } from 'next/server';
 import { LIMIT } from '@/constants/limit';
 import { companyData } from '@/mock/company';
+
 import { CompanyResponse } from '@/types/company';
-import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(request: NextRequest) {
   await new Promise((resolve) => setTimeout(resolve, 1000 * 1.5)); // Simulated slow API call

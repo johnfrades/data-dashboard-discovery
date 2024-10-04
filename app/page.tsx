@@ -1,5 +1,4 @@
 import { Suspense } from 'react';
-
 import dynamic from 'next/dynamic';
 
 const CompanyList = dynamic(() => import('./components/company-list'), { ssr: false });

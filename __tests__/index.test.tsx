@@ -1,9 +1,12 @@
 import '@testing-library/jest-dom';
-import { render, screen } from '@testing-library/react';
-import Page from '../app/page';
+
 import { companyData } from '@/mock/company';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+
 import Layout from '@/app/layout';
+
+import Page from '../app/page';
 
 global.fetch = jest.fn(() =>
   Promise.resolve({

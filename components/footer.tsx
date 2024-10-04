@@ -1,6 +1,7 @@
 'use client';
 
 import useCompanyStore from '@/store/company';
+
 import { Button } from './ui/button';
 
 const Footer = () => {

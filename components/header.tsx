@@ -1,6 +1,7 @@
-import DarkModeToggle from '@/components/dark-mode-toggle';
-import { Github } from 'lucide-react';
 import Link from 'next/link';
+import { Github } from 'lucide-react';
+
+import DarkModeToggle from '@/components/dark-mode-toggle';
 
 const Header = () => {
   return (

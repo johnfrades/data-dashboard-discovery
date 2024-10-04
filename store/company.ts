@@ -1,7 +1,8 @@
-import { Company, CompanyResponse } from '@/types/company';
-import { create } from 'zustand';
 import { API_URL } from '@/constants/apiUrl';
 import { toast } from 'sonner';
+import { create } from 'zustand';
+
+import { Company, CompanyResponse } from '@/types/company';
 
 type CompanyStore = {
   companies: Company[];

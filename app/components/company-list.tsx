@@ -1,13 +1,14 @@
 'use client';
 
 import { useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { FixedSizeList } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
+
 import useCompanyStore from '../../store/company';
-import SkeletonLoader from './skeleton-loader';
 import CompanyCard from './company-card';
-import { useSearchParams } from 'next/navigation';
 import ErrorMessage from './error-message';
+import SkeletonLoader from './skeleton-loader';
 
 const CompanyList = () => {
   const searchParams = useSearchParams();

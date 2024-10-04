@@ -1,6 +1,6 @@
 import { Company } from '@/types/company';
-import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { cn } from '@/lib/utils';
+import { Card, CardHeader, CardTitle } from '@/components/ui/card';
 import { Checkbox } from '@/components/ui/checkbox';
 
 type CompanyCardProps = {
