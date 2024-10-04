@@ -23,6 +23,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company, companiesSelected, s
           : 'shadow-sm hover:shadow-lg'
       )}
       onClick={() => selectCompany(company)}
+      data-testid={`company-${company.id}`}
     >
       <CardHeader className='flex-grow'>
         <CardTitle className='text-lg flex justify-between align-center'>
