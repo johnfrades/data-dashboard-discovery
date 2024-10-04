@@ -4,7 +4,7 @@ import { CompanyResponse } from '@/types/company';
 import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(request: NextRequest) {
-  await new Promise((resolve) => setTimeout(resolve, 1000 * 2)); // Simulated slow API call
+  await new Promise((resolve) => setTimeout(resolve, 1000 * 1.5)); // Simulated slow API call
   const searchParams = request.nextUrl.searchParams;
 
   const page = parseInt(searchParams.get('page') || '1', 10);
