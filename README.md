@@ -97,3 +97,35 @@ To simulate an error scenario and test the error handling functionality of the a
    - Verify that the error is logged in the console for debugging purposes.
 
 6. To resolve the simulated error and return to normal functionality, simply remove the `?error=true` query parameter from the URL and refresh the page.
+
+## Dark Mode
+
+The application includes a dark mode feature for enhanced user experience:
+
+1. **Toggling Dark Mode**:
+
+   - Look for the sun/moon icon in the header of the application.
+   - Click on this icon to switch between light and dark modes.
+
+2. **Persistence**:
+
+   - Your dark mode preference is saved locally, so it will be remembered across sessions.
+
+3. **System Preference**:
+
+   - By default, the application respects your system's color scheme preference.
+   - If your system is set to dark mode, the application will initially load in dark mode, and vice versa.
+
+4. **Accessibility**:
+
+   - The dark mode is designed with accessibility in mind, ensuring proper contrast ratios for text and interactive elements.
+
+5. **Implementation**:
+   - Dark mode is implemented using Tailwind CSS and a custom `ThemeProvider` component (`components/theme-provider.tsx`).
+   - The `DarkModeToggle` component (`components/dark-mode-toggle.tsx`) handles the user interaction for switching themes.
+
+To experience the dark mode:
+
+1. Navigate to the application in your browser (usually `http://localhost:3000`).
+2. Click on the sun/moon icon in the header to toggle between light and dark modes.
+3. Observe how the application's color scheme changes to suit your preference.
