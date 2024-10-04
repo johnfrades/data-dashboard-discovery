@@ -11,8 +11,9 @@ type CompanyStore = {
   totalCount: number;
   hasMore: boolean;
   selectCompany: (company: Company) => void;
-  loadMoreCompanies: () => Promise<void>;
+  loadMoreCompanies: (searchParams?: URLSearchParams) => Promise<void>;
   deleteCompanies: () => void;
+  hasError: boolean;
 };
 
 const useCompanyStore = create<CompanyStore>((set, get) => ({
@@ -22,6 +23,7 @@ const useCompanyStore = create<CompanyStore>((set, get) => ({
   currentPage: 0,
   totalCount: 0,
   hasMore: true,
+  hasError: false,
   deleteCompanies: () =>
     set((state) => {
       const companies = state.companies.filter(
@@ -57,15 +59,20 @@ const useCompanyStore = create<CompanyStore>((set, get) => ({
       };
     }),
 
-  loadMoreCompanies: async () => {
+  loadMoreCompanies: async (searchParams?: URLSearchParams) => {
     const { isLoading, currentPage } = get();
 
     if (isLoading) return;
 
-    set({ isLoading: true });
+    set({ isLoading: true, hasError: false });
 
     try {
-      const response = await fetch(`${API_URL}/api/companies?page=${currentPage + 1}`);
+      const params = new URLSearchParams({
+        page: String(currentPage + 1),
+        ...Object.fromEntries(searchParams?.entries() || []),
+      });
+
+      const response = await fetch(`${API_URL}/api/companies?${params}`);
       const newCompaniesResponse = (await response.json()) as CompanyResponse;
 
       set((state) => ({
@@ -76,6 +83,7 @@ const useCompanyStore = create<CompanyStore>((set, get) => ({
       }));
     } catch (error) {
       console.error('Error loading more companies:', error);
+      set({ hasError: true });
     } finally {
       set({ isLoading: false });
     }

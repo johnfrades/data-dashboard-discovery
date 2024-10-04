@@ -6,8 +6,11 @@ import InfiniteLoader from 'react-window-infinite-loader';
 import useCompanyStore from '../../store/company';
 import SkeletonLoader from './skeleton-loader';
 import CompanyCard from './company-card';
+import { useSearchParams } from 'next/navigation';
+import ErrorMessage from './error-message';
 
 const CompanyList = () => {
+  const searchParams = useSearchParams();
   const {
     companies,
     isLoading,
@@ -16,16 +19,22 @@ const CompanyList = () => {
     selectCompany,
     totalCount,
     hasMore,
+    hasError,
   } = useCompanyStore();
 
   useEffect(() => {
     if (companies.length === 0) {
-      loadMoreCompanies();
+      loadMoreCompanies(searchParams);
     }
   }, []);
 
   const itemCount = hasMore ? companies.length + 1 : companies.length;
-  const loadMoreItems = isLoading ? () => {} : loadMoreCompanies;
+  const loadMoreItems = () => {
+    if (!isLoading) {
+      loadMoreCompanies(searchParams);
+    }
+  };
+
   const isItemLoaded = (index: number) => !hasMore || index < companies.length;
 
   const Item = (props: { index: number; style: React.CSSProperties }) => {
@@ -49,12 +58,21 @@ const CompanyList = () => {
     }
   };
 
+  if (hasError) {
+    return <ErrorMessage />;
+  }
+
   if (totalCount === 0) {
     return <SkeletonLoader />;
   }
 
   return (
-    <InfiniteLoader isItemLoaded={isItemLoaded} itemCount={itemCount} loadMoreItems={loadMoreItems}>
+    <InfiniteLoader
+      isItemLoaded={isItemLoaded}
+      itemCount={itemCount}
+      loadMoreItems={loadMoreItems}
+      threshold={1}
+    >
       {({ onItemsRendered, ref }) => (
         <FixedSizeList
           className='List'

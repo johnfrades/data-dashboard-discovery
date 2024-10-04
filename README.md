@@ -68,3 +68,30 @@ The project follows a modular and component-based structure. Here's an overview 
 - `__tests__/`: Contains unit tests for components and functionality.
 - `styles/`: Contains global styles and Tailwind CSS configuration.
 - `public/`: Contains static assets such as images and fonts.
+
+## Error Simulation
+
+To simulate an error scenario and test the error handling functionality of the application, follow these steps:
+
+1. Start the development server if it's not already running:
+
+   ```
+   npm run dev
+   ```
+
+2. Open your browser and navigate to the application's main page (usually `http://localhost:3000`).
+
+3. To simulate an error, add the `?error=true` query parameter to the URL. For example:
+
+   ```
+   http://localhost:3000/?error=true
+   ```
+
+4. Refresh the page or navigate to this URL.
+
+5. Observe how the application handles the simulated error scenario:
+
+   - It should display an error message component (`error-message.tsx`) indicating that an error occurred while fetching the companies.
+   - Verify that the error is logged in the console for debugging purposes.
+
+6. To resolve the simulated error and return to normal functionality, simply remove the `?error=true` query parameter from the URL and refresh the page.

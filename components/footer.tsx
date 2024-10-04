@@ -11,8 +11,12 @@ const Footer = () => {
     <footer className='bg-background border-t z-10 px-6' role='contentinfo'>
       <div className='flex items-center justify-between py-4 gap-4'>
         <p className='text-sm md:text-base text-muted-foreground' aria-live='polite'>
-          <span className='sr-only'>Number of </span>
-          {selectedCount} {selectedCount === 1 ? 'company' : 'companies'} selected
+          {selectedCount > 0 && (
+            <>
+              <span className='sr-only'>Number of </span>
+              {selectedCount} {selectedCount === 1 ? 'company' : 'companies'} selected
+            </>
+          )}
         </p>
         <Button
           disabled={selectedCount === 0}

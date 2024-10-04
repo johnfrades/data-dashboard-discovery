@@ -26,7 +26,7 @@ const CompanyCard: React.FC<CompanyCardProps> = ({ company, companiesSelected, s
       data-testid={`company-${company.id}`}
     >
       <CardHeader className='flex-grow'>
-        <CardTitle className='text-lg flex justify-between align-center'>
+        <CardTitle className='text-lg flex justify-between items-center'>
           <span className='truncate pr-10'>{company.name}</span>
           <Checkbox checked={!!companyExists} />
         </CardTitle>
