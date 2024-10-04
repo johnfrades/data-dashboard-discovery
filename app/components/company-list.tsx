@@ -3,7 +3,7 @@
 import { useEffect } from 'react';
 import { FixedSizeList } from 'react-window';
 import InfiniteLoader from 'react-window-infinite-loader';
-import useCompanyStore from '../store/company';
+import useCompanyStore from '../../store/company';
 import SkeletonLoader from './skeleton-loader';
 import CompanyCard from './company-card';
 
