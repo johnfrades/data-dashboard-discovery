@@ -17,13 +17,13 @@ To run the project locally, follow these steps:
 2. Clone the repository:
 
    ```
-   git clone https://github.com/your-username/data-discovery-dashboard.git
+   git clone https://github.com/johnfrades/data-dashboard-discovery.git
    ```
 
 3. Navigate to the project directory:
 
    ```
-   cd data-discovery-dashboard
+   cd data-dashboard-discovery
    ```
 
 4. Install the dependencies:
