@@ -1,36 +1,70 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Data Discovery Dashboard
+
+This is a data discovery dashboard application built with Next.js, React, TypeScript, Tailwind CSS, and Shadcn UI.
 
 ## Getting Started
 
-First, run the development server:
+To run the project locally, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. Make sure you have Node.js version 20 or above installed on your machine. You can check your Node.js version by running the following command:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+   ```
+   node -v
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   If you don't have Node.js installed or have an older version, you can download and install the latest version from the official Node.js website: [https://nodejs.org](https://nodejs.org)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+2. Clone the repository:
 
-## Learn More
+   ```
+   git clone https://github.com/your-username/data-discovery-dashboard.git
+   ```
 
-To learn more about Next.js, take a look at the following resources:
+3. Navigate to the project directory:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+   ```
+   cd data-discovery-dashboard
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. Install the dependencies:
 
-## Deploy on Vercel
+   ```
+   npm install
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+5. Start the development server:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+   ```
+   npm run dev
+   ```
+
+6. Open your browser and visit `http://localhost:3000` to see the application.
+
+## Functionality
+
+The data discovery dashboard provides the following functionality:
+
+- **Company List**: The main page displays a list of companies fetched from the backend API. Each company is represented by a card component (`company-list.tsx`) that shows relevant information about the company. The list is implemented using `react-window-infinite-loader` for efficient rendering of a large number of items.
+
+- **Company Selection**: Users can select one or more companies from the list by clicking on the checkbox in each company card. The selected companies are highlighted and their state is managed using the `company` store.
+
+- **Company Deletion**: Users can delete the selected companies by clicking on the "Delete Selected" button in the footer. This action removes the selected companies from the list and updates the state accordingly.
+
+- **API Integration**: The application interacts with a backend API to fetch and manipulate company data. The API routes are defined in the `app/api/companies` directory, and they handle requests for fetching and updating company information.
+
+- **State Management**: The application uses Zustand (`company.ts`) for managing the state of company data. The store provides actions to fetch companies from the API, update the selection state of companies, and remove selected companies from the list.
+
+- **Testing**: The project includes unit tests using Jest and React Testing Library. The tests are located in the `__tests__` directory and cover various components and functionality. To run the tests, use the command `npm test`.
+
+## Code Structure
+
+The project follows a modular and component-based structure. Here's an overview of the main directories and files:
+
+- `app/`: Contains the Next.js application files.
+  - `components/`: Contains reusable React components.
+  - `api/`: Contains API route handlers.
+- `store/`: Contains Zustand store definitions for managing application state.
+- `mock/`: Contains mock data for testing and development purposes.
+- `__tests__/`: Contains unit tests for components and functionality.
+- `styles/`: Contains global styles and Tailwind CSS configuration.
+- `public/`: Contains static assets such as images and fonts.
