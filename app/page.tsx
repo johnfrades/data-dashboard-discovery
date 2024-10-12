@@ -1,9 +1,9 @@
 import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 
-const CompanyList = dynamic(() => import('./components/company-list'), { ssr: false });
+import SkeletonLoader from './components/skeleton-loader';
 
-const SkeletonLoader = dynamic(() => import('./components/skeleton-loader'), { ssr: false });
+const CompanyList = dynamic(() => import('./components/company-list'), { ssr: false });
 
 const Home = async () => {
   return (
